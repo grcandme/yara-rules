@@ -1,0 +1,74 @@
+rule DuckTail_Threat_Indicators {
+    meta:
+        description = "Detects DuckTail threat actor indicators"
+        author = "WENT"
+        reference = "IOC list source reference"
+    
+    strings:
+        $ioc_strings = /marketingagency[.]social/ nocase
+                      /a1outreach[.]software/ nocase
+                      /mangogroup[.]sale/ nocase
+                      /la-roche-posay[.]click/ nocase
+                      /li-ning[.]agency/ nocase
+                      /li-ning[.]news/ nocase
+                      /hrm[.]social/ nocase
+                      /hrms[.]social/ nocase
+                      /mccann[.]fyi/ nocase
+                      /avalonorganics[.]work/ nocase
+                      /li-ningagency[.]news/ nocase
+                      /li-ningjod[.]news/ nocase
+                      /ogilvy[.]social/ nocase
+                      /narscosmetics[.]social/ nocase
+                      /yodo1game[.]software/ nocase
+                      /louisvuitton-social[.]news/ nocase
+                      /luoisviitton[.]news/ nocase
+                      /eucerin[.]work/ nocase
+                      /guessinc[.]work/ nocase
+                      /samsungagency[.]link/ nocase
+                      /brandresource[.]social/ nocase
+                      /recruiterofbrand[.]social/ nocase
+                      /brandrecruitment[.]social/ nocase
+                      /hrmmarketing[.]link/ nocase
+                      /marketingmanager[.]social/ nocase
+                      /recruitmentagency[.]social/ nocase
+                      /marketing-project[.]social/ nocase
+                      /nike-agency[.]link/ nocase
+                      /recuiter[.]company/ nocase
+                      /louisvuitton-agency[.]link/ nocase
+                      /louisvuitton-agencyjod[.]live/ nocase
+                      /mccann[.]expert/ nocase
+                      /ogilvysocial[.]company/ nocase
+                      /louisvuitton-hr[.]news/ nocase
+                      /louisvuitton-jod[.]chat/ nocase
+                      /hyundaimotorjob[.]social/ nocase
+                      /hyundaimotor[.]social/ nocase
+                      /hyundaimotorgroup[.]social/ nocase
+                      /adplexity[.]site/ nocase
+                      /adplexitydesk[.]tech/ nocase
+                      /fbadsguide[.]tech/ nocase
+                      /affiliateguide[.]tech/ nocase
+                      /newguide[.]tech/ nocase
+                      /businessmanagerads[.]tech/ nocase
+                      /businessmanager-update[.]info/ nocase
+                      /marketing-tool[.]info/ nocase
+                      /connectads[.]agency/ nocase
+                      /disruptiveadvertising[.]agency/ nocase
+                      /impressionagency[.]co/ nocase
+                      /themars[.]social/ nocase
+                      /ommmarketing[.]agency/ nocase
+                      /growmemarketing[.]agency/ nocase
+                      /ommmarketing[.]digital/ nocase
+                      /impressiondigitals[.]agency/ nocase
+                      /impressiondigital[.]info/ nocase
+                      /passions[.]agency/ nocase
+                      /brandstyle[.]agency/ nocase
+                      /brandstyle[.]digital/ nocase
+        $file_indicators = /LNK\.Downloader\.Ducktail/ nocase
+                            /Win32\.Dropper\.Ducktail/ nocase
+                            /Win64\.PWS\.Ducktail/ nocase
+                            /Win32\.Downloader\.Ducktail/ nocase
+                            /Win32\.PWS\.Ducktail/ nocase
+
+    condition:
+        any of them
+}
